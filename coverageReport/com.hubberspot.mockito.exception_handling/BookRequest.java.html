@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BookRequest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">mockito</a> &gt; <a href="index.source.html" class="el_package">com.hubberspot.mockito.exception_handling</a> &gt; <span class="el_source">BookRequest.java</span></div><h1>BookRequest.java</h1><pre class="source lang-java linenums">package com.hubberspot.mockito.exception_handling;
+
+import java.time.LocalDate;
+
+public class BookRequest {
+
+	private String title;
+
+	private int price;
+
+	private LocalDate publishedDate;
+
+<span class="nc" id="L13">	public BookRequest(String title, int price, LocalDate publishedDate) {</span>
+<span class="nc" id="L14">		this.title = title;</span>
+<span class="nc" id="L15">		this.price = price;</span>
+<span class="nc" id="L16">		this.publishedDate = publishedDate;</span>
+<span class="nc" id="L17">	}</span>
+
+	public String getTitle() {
+<span class="nc" id="L20">		return title;</span>
+	}
+
+	public void setTitle(String title) {
+<span class="nc" id="L24">		this.title = title;</span>
+<span class="nc" id="L25">	}</span>
+
+	public int getPrice() {
+<span class="nc" id="L28">		return price;</span>
+	}
+
+	public void setPrice(int price) {
+<span class="nc" id="L32">		this.price = price;</span>
+<span class="nc" id="L33">	}</span>
+
+	public LocalDate getPublishedDate() {
+<span class="nc" id="L36">		return publishedDate;</span>
+	}
+
+	public void setPublishedDate(LocalDate publishedDate) {
+<span class="nc" id="L40">		this.publishedDate = publishedDate;</span>
+<span class="nc" id="L41">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
