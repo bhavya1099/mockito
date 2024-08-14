@@ -60,7 +60,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.junit.Before;
+// import org.junit.Before;
 import org.junit.jupiter.api.*;
 
 @Tag("com.hubberspot.mockito.test_doubles.stub")
@@ -78,7 +78,7 @@ public class BookServiceGetNewBooksWithAppliedDiscountTest {
 	@InjectMocks
 	BookService bookService;
 
-	@Before
+	//@Before
 	public void setUp() {
 		MockitoAnnotations.initMocks(this);
 	}
