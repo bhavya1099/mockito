@@ -4,22 +4,22 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class BookService {
-
+	
 	private BookRepository bookRepository;
-
+	
 <span class="fc" id="L10">	public BookService(BookRepository bookRepository) {</span>
 <span class="fc" id="L11">		this.bookRepository = bookRepository;</span>
 <span class="fc" id="L12">	}</span>
-
+	
 	public void addBook(Book book) {
-<span class="fc bfc" id="L15" title="All 2 branches covered.">		if (book.getPrice() &lt;= 500) {</span>
+<span class="fc bfc" id="L15" title="All 2 branches covered.">		if(book.getPrice() &lt;= 500){</span>
 <span class="fc" id="L16">			return;</span>
 		}
 <span class="fc" id="L18">		bookRepository.save(book);</span>
 <span class="fc" id="L19">	}</span>
-
+	
 	public void addBook(BookRequest bookRequest) {
-<span class="fc bfc" id="L22" title="All 2 branches covered.">		if (bookRequest.getPrice() &lt;= 500) {</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">		if(bookRequest.getPrice() &lt;= 500){</span>
 <span class="fc" id="L23">			return;</span>
 		}
 <span class="fc" id="L25">		Book book = new Book();</span>
@@ -28,24 +28,23 @@ public class BookService {
 <span class="fc" id="L28">		book.setPublishedDate(bookRequest.getPublishedDate());</span>
 <span class="fc" id="L29">		bookRepository.save(book);</span>
 <span class="fc" id="L30">	}</span>
-
-	public void updatePrice(String bookId, int updatedPrice) {
+	
+	public void updatePrice(String bookId, int updatedPrice){
 <span class="fc" id="L33">		Book book = bookRepository.findBookById(bookId);</span>
 <span class="fc" id="L34">		book.setPrice(updatedPrice);</span>
 <span class="fc" id="L35">		bookRepository.save(book);</span>
 <span class="fc" id="L36">	}</span>
-
+	
 	public Book getBookByTitleAndPublishedDate(String title, LocalDate localDate) {
 <span class="fc" id="L39">		return bookRepository.findBookByTitleAndPublishedDate(title, localDate);</span>
 	}
-
+	
 	public Book getBookByTitleAndPriceAndIsDigital(String title, int price, boolean isDigital) {
 <span class="fc" id="L43">		return bookRepository.findBookByTitleAndPriceAndIsDigital(title, price, isDigital);</span>
 	}
-
+	
 	public void addBooks(List&lt;Book&gt; books) {
 <span class="fc" id="L47">		bookRepository.saveAll(books);</span>
 <span class="fc" id="L48">	}</span>
-
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -4,41 +4,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookService {
-
+	
 	private BookRepository bookRepository;
-
+	
 <span class="fc" id="L10">	public BookService(BookRepository bookRepository) {</span>
 <span class="fc" id="L11">		this.bookRepository = bookRepository;</span>
 <span class="fc" id="L12">	}</span>
-
-	public List&lt;Book&gt; getNewBooksWithAppliedDiscount(int discountRate, int days) {
+	
+	public List&lt;Book&gt; getNewBooksWithAppliedDiscount(int discountRate, int days){
 <span class="nc" id="L15">		List&lt;Book&gt; newBooks = bookRepository.findNewBooks(days);</span>
 		// 500 apply 10% -&gt; 10% of 500 -&gt; 50 -&gt; 500 - 50 -&gt; 450
-
-<span class="nc bnc" id="L18" title="All 2 branches missed.">		for (Book book : newBooks) {</span>
+		
+<span class="nc bnc" id="L18" title="All 2 branches missed.">		for(Book book : newBooks){</span>
 <span class="nc" id="L19">			int price = book.getPrice();</span>
 <span class="nc" id="L20">			int newPrice = price - (discountRate * price / 100);</span>
 <span class="nc" id="L21">			book.setPrice(newPrice);</span>
 <span class="nc" id="L22">		}</span>
-
+		
 <span class="nc" id="L24">		return newBooks;</span>
 	}
-
+	
 	public int calculateTotalCost(List&lt;String&gt; bookIds) {
 <span class="fc" id="L28">		int total = 0;</span>
-<span class="fc bfc" id="L29" title="All 2 branches covered.">		for (String bookId : bookIds) {</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">		for(String bookId : bookIds){</span>
 <span class="fc" id="L30">			Book book = bookRepository.findBookByBookId(bookId);</span>
 <span class="fc" id="L31">			total = total + book.getPrice();</span>
 <span class="fc" id="L32">		}</span>
 <span class="fc" id="L33">		return total;</span>
 	}
-
+	
 	public void addBook(Book book) {
 <span class="fc" id="L37">		bookRepository.save(book);</span>
 <span class="fc" id="L38">	}</span>
-
+	
 	public void addBook(BookRequest bookRequest) {
-<span class="fc bfc" id="L41" title="All 2 branches covered.">		if (bookRequest.getPrice() &lt;= 500) {</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">		if(bookRequest.getPrice() &lt;= 500){</span>
 <span class="fc" id="L42">			return;</span>
 		}
 <span class="fc" id="L44">		Book book = new Book();</span>
@@ -47,6 +47,5 @@ public class BookService {
 <span class="fc" id="L47">		book.setPublishedDate(bookRequest.getPublishedDate());</span>
 <span class="fc" id="L48">		bookRepository.save(book);</span>
 <span class="fc" id="L49">	}</span>
-
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

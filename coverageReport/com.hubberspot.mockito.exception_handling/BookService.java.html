@@ -4,38 +4,35 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class BookService {
-
+	
 	private BookRepository bookRepository;
-
+	
 <span class="fc" id="L10">	public BookService(BookRepository bookRepository) {</span>
 <span class="fc" id="L11">		this.bookRepository = bookRepository;</span>
 <span class="fc" id="L12">	}</span>
-
+	
 	public int getTotalPriceOfBooks() {
 <span class="fc" id="L15">		List&lt;Book&gt; books = null;</span>
 		try {
 <span class="nc" id="L17">			books = bookRepository.findAllBooks();</span>
-		}
-<span class="fc" id="L19">		catch (SQLException e) {</span>
+<span class="fc" id="L18">		} catch (SQLException e) {</span>
 			// log exception
-<span class="fc" id="L21">			throw new DatabaseReadException(&quot;Unable to read from database due to - &quot; + e.getMessage());</span>
-<span class="nc" id="L22">		}</span>
-<span class="nc" id="L23">		int totalPrice = 0;</span>
-<span class="nc bnc" id="L24" title="All 2 branches missed.">		for (Book book : books) {</span>
-<span class="nc" id="L25">			totalPrice = totalPrice + book.getPrice();</span>
-<span class="nc" id="L26">		}</span>
-<span class="nc" id="L27">		return totalPrice;</span>
+<span class="fc" id="L20">			throw new DatabaseReadException(&quot;Unable to read from database due to - &quot; + e.getMessage());</span>
+<span class="nc" id="L21">		}</span>
+<span class="nc" id="L22">		int totalPrice = 0;</span>
+<span class="nc bnc" id="L23" title="All 2 branches missed.">		for(Book book : books){</span>
+<span class="nc" id="L24">			totalPrice = totalPrice + book.getPrice();</span>
+<span class="nc" id="L25">		}</span>
+<span class="nc" id="L26">		return totalPrice;</span>
 	}
-
-	public void addBook(Book book) {
+	
+	public void addBook(Book book){
 		try {
-<span class="nc" id="L32">			bookRepository.save(book);</span>
-		}
-<span class="fc" id="L34">		catch (SQLException e) {</span>
+<span class="nc" id="L31">			bookRepository.save(book);</span>
+<span class="fc" id="L32">		} catch (SQLException e) {</span>
 			// log exception
-<span class="fc" id="L36">			throw new DatabaseWriteException(&quot;Unable to write in database due to - &quot; + e.getMessage());</span>
-<span class="nc" id="L37">		}</span>
-<span class="nc" id="L38">	}</span>
-
+<span class="fc" id="L34">			throw new DatabaseWriteException(&quot;Unable to write in database due to - &quot; + e.getMessage());</span>
+<span class="nc" id="L35">		}</span>
+<span class="nc" id="L36">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

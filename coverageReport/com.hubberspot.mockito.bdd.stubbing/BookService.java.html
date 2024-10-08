@@ -3,25 +3,24 @@
 import java.util.List;
 
 public class BookService {
-
+	
 	private BookRepository bookRepository;
-
+	
 <span class="fc" id="L9">	public BookService(BookRepository bookRepository) {</span>
 <span class="fc" id="L10">		this.bookRepository = bookRepository;</span>
 <span class="fc" id="L11">	}</span>
-
-	public List&lt;Book&gt; getNewBooksWithAppliedDiscount(int discountRate, int days) {
+	
+	public List&lt;Book&gt; getNewBooksWithAppliedDiscount(int discountRate, int days){
 <span class="fc" id="L14">		List&lt;Book&gt; newBooks = bookRepository.findNewBooks(days);</span>
 		// 500 apply 10% -&gt; 10% of 500 -&gt; 50 -&gt; 500 - 50 -&gt; 450
-
-<span class="fc bfc" id="L17" title="All 2 branches covered.">		for (Book book : newBooks) {</span>
+		
+<span class="fc bfc" id="L17" title="All 2 branches covered.">		for(Book book : newBooks){</span>
 <span class="fc" id="L18">			int price = book.getPrice();</span>
 <span class="fc" id="L19">			int newPrice = price - (discountRate * price / 100);</span>
 <span class="fc" id="L20">			book.setPrice(newPrice);</span>
 <span class="fc" id="L21">		}</span>
-
+		
 <span class="fc" id="L23">		return newBooks;</span>
 	}
-
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
